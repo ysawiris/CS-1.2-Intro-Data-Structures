@@ -1,18 +1,22 @@
-import random
 import sys
+import random
 
-
-def rearrange_words(input=sys.argv[1:]):
-    input_list = list(range(len(input)))
+def rearrange_words(input_words):
     new_list = []
 
-    while(len(input_list) != 0):
-        random_list = random.randint(0, len(input_list) - 1)
-        new_list.append(input[input_list[random_list]])
-        input_list.pop(random_list)
+    while(len(new_list) < len(input_words)):
+        random_index = random.randint(0, len(input_words)-1)
+        random_word = input_words[random_index]
 
-    return new_list
+        if random_word in new_list:
+            continue
+
+        new_list.append(random_word)
+
+    rearrange_words = " ".join(new_list)
+    return rearrange_words
 
 
 if __name__ == "__main__":
-    print(rearrange_words())
+    input_words = sys.argv[1:]
+    print(rearrange_words(input_words))
