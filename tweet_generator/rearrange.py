@@ -13,8 +13,8 @@ def rearrange_words(input_words):
 
         new_list.append(random_word)
 
-    rearrange_words = " ".join(new_list)
-    return rearrange_words
+    rearranged_words = " ".join(new_list)
+    return rearranged_words
 
 
 if __name__ == "__main__":
