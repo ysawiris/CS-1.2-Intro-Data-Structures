@@ -4,7 +4,10 @@ import random
 def rearrange_words(input_words):
     new_list = []
 
-    while(len(new_list) < len(input_words)):
+    #Loop through the words the user inputs 
+    while(len(input_words) > len(new_list)):
+
+        #get a random word and add it to a new list 
         random_index = random.randint(0, len(input_words)-1)
         random_word = input_words[random_index]
 
@@ -12,7 +15,7 @@ def rearrange_words(input_words):
             continue
 
         new_list.append(random_word)
-
+    #combine the new list 
     rearranged_words = " ".join(new_list)
     return rearranged_words
 
