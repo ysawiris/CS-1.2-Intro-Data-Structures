@@ -12,7 +12,7 @@ def open_file(fname):
     #split each word to be seperate 
     
     for line in lines:
-        stripWordPunctuation(line)
+        line = stripWordPunctuation(line)
 
     file.close()
 
@@ -65,9 +65,21 @@ def histogram_dictionary(file_text):
             histogram[text] += 1
         else:
             histogram[text] = 1
-    
+    print(histogram)
     return histogram
 
+def unique_words(file_text):
+    #define our histogram 
+    histogram = {}
+
+    #loop though our file_text and add text to our histogram 
+    for text in file_text:
+        if text in histogram.keys():
+            histogram[text] += 1
+        else:
+            histogram[text] = 1
+    
+    return (len(histogram))
 
 
 
