@@ -2,24 +2,25 @@ import sys
 import random
 
 def stripWordPunctuation(word):
-    return word.strip("&.,()<>\"\\'~?!;*:[]-+/&—\n ")
+    return word.strip("#^%$@&.,()<>\"\\'~?!;*:[]-+/&—\n` ")
 
 def open_file(fname):
-    
-    #open and read file 
+    #the new list we are going to add the stripped word to
+    new_text = []
+
+    #open and read file and split the words 
     file = open(fname, 'r')
-    lines = file.read().split()
-    #split each word to be seperate 
+    file_text = file.read().split()
     
-    for line in lines:
-        line = stripWordPunctuation(line)
+    #strip each word and append it to new list 
+    for line in file_text:
+        line = (stripWordPunctuation(line))
+        line = line.lower()
+        new_text.append(line)
 
     file.close()
 
-    #print(lines)
-    #print(line)
-
-    return lines
+    return new_text
 
 def histogram_list(file_text):
     #define our histogram 
