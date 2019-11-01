@@ -66,7 +66,6 @@ def histogram_dictionary(file_text):
             histogram[text] += 1
         else:
             histogram[text] = 1
-    print(histogram)
     return histogram
 
 def unique_words(file_text):
