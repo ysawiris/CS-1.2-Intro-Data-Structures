@@ -7,6 +7,9 @@
     <title>Tweet Genorator</title>
     <!-- Latest compiled and minified CSS -->
     <link rel='stylesheet' href='https://bootswatch.com/4/lux/bootstrap.min.css'>
+
+    <!-- CUSTOM STYLES -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!---NavBar-->
@@ -23,17 +26,18 @@
         </div>
     </nav>
 
+    {% block content %}
     <!--Background-->
     <div class="container-fluid">
         <!-- A fluid container that uses the full witdh -->
         <img src="/static/background.png" class="img-fluid" style="width: 100%;" alt="Responsive image">
+        <div class="centered">
+            <h4>{{ lyric_id }}</h4>
+        </div>
     </div>
+    {% endblock %}
 
-    <div class="container-fluid">
-        <h4>{{ lyric }}</h4>
-    </div>
 
-    
     
 </body>
 </html>

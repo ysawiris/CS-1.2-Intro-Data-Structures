@@ -1,6 +1,6 @@
 import sys
 import random
-from frequency import histogram_dictionary, open_file
+from modules import frequency
 
 def random_word_by_freq(histogram):
     tokens = 0   #to tally up the values count 
@@ -29,7 +29,7 @@ def test_random_word_by_frequency(text_file):
     
     #run random_word_by_frequency 100 times and add results to a words list 
     for _ in range(0,100):
-        words.append(random_word_by_freq(histogram_dictionary(text_file)))
+        words.append(random_word_by_freq(frequency.histogram_dictionary(text_file)))
     
     #convert our list to a histogram to see our results easier 
     for text in words:
@@ -43,8 +43,8 @@ def test_random_word_by_frequency(text_file):
 def run_sample_by_freq():
 
     path = '/Users/ysawiris/dev/CS-1.2-Intro-Data-Structures/tweet_generator/database/lyrcis.txt'
-    text = open_file(path)
-    histogram = histogram_dictionary(text)
+    text = frequency.open_file(path)
+    histogram = frequency.histogram_dictionary(text)
 
     words = []
     sentence = ""
