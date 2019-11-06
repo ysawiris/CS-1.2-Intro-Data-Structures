@@ -19,7 +19,8 @@ def index():
         'lyric' : sample_by_frequency.run_sample_by_freq()
     }
     lyric_id = lyric.insert_one(lyric_list).inserted_id
-    return render_template('base.html', lyric_id = lyric_id)
+    lyric_text = lyric.find_one({'_id': ObjectId(lyric_id)}['lyric'])  
+    return render_template('base.html', lyric_id = lyric_id, lyric_text = lyric_text)
 
 
 
