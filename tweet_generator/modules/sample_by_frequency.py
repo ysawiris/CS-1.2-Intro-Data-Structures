@@ -42,7 +42,7 @@ def test_random_word_by_frequency(text_file):
 
 def run_sample_by_freq():
 
-    path = '/Users/ysawiris/dev/CS-1.2-Intro-Data-Structures/tweet_generator/database/lyrcis.txt'
+    path = './database/lyrcis.txt'
     text = frequency.open_file(path)
     histogram = frequency.histogram_dictionary(text)
 
