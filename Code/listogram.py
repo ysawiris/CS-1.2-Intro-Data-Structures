@@ -63,10 +63,16 @@ class Listogram(list):
         return None
 
     def sample(self):
-
+        """Return a word from this histogram, randomly sampled by weighting
+        each word's probability of being chosen by its observed frequency."""
+        # TODO: Randomly choose a word based on its frequency in this histogram
         count = random.randint(1, self.tokens)
+
+        #loop through the histogram
         for word in self:
+            #subtract value from count 
             count -= word[1]
+            #End loop if count is less than or equal to zero 
             if count <= 0:
                 return word[0]
         return -1
