@@ -1,6 +1,9 @@
 import sys
 import random
-from modules import frequency
+#error will occur when running app in terminal, this line of code is need for Heroku
+#from modules import frequency
+#uncomment the line below to have it work correctly, make sure to comment out line 4 
+import frequency
 
 def random_word_by_freq(histogram):
     tokens = 0   #to tally up the values count 
@@ -23,7 +26,7 @@ def random_word_by_freq(histogram):
         if count > random_index:
             return word 
 
-def test_random_word_by_frequency(text_file):
+def test_random_word_by_frequency(text_file='test-file.txt'):
     words = []
     histogram ={}
     
@@ -42,34 +45,22 @@ def test_random_word_by_frequency(text_file):
 
 def run_sample_by_freq():
 
-    path = './database/lyrcis.txt'
+    path = 'text-file.txt'
     text = frequency.open_file(path)
     histogram = frequency.histogram_dictionary(text)
 
     words = []
     sentence = ""
     num_words = 10
-
-    for _ in range(0,10):
+    
+    #loop num_words amount of times and add a random word by frequency to a words list 
+    for _ in range(0, num_words):
         words.append(random_word_by_freq(histogram))
     
-    while num_words > 0:
-        #Get random number of index
-        random_index = random.randint(0, len(words)-1)
+    #loop through each word in words list and add the word to the sentence string 
+    for word in words:
+        sentence += word + " "
 
-        #Get num_word of random word
-        random_words = words[random_index]
-
-        #put the words into a sentence 
-        sentence += random_words + " "
-        
-        # Remove word from list of words
-        words.remove(random_words)
-
-        #count down to exit while loop
-        num_words -= 1
-    
-    print(sentence)
     return sentence
 
 

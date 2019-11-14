@@ -1,19 +1,26 @@
 import random 
 import sys 
 
-def get_all_words():
-    #Open and read in the words in  file
-    f = open('/Users/ysawiris/dev/CS-1.2-Intro-Data-Structures/tweet_generator/database/lyrcis.txt', 'r')
-    words = f.readlines()
-    f.close()
-    
-    words_list = []
+def stripWordPunctuation(word):
+    return word.strip("#^%$@&.,()<>\"\\'~?!;*:[]-+/&—\n` ")
 
-    #Loop over each word and strip the word before adding the a new list 
-    for word in words:
-        words_list.append(word.strip())
-    print(words_list)
-    return words_list
+def get_all_words(path='text-file.txt'):
+    #the new list we are going to add the stripped word to
+    new_text = []
+
+    #open and read file and split the words 
+    with open(path, 'r') as file:
+        file_text = file.read().split()
+    
+    #strip each word and append it to new list 
+    for line in file_text:
+        line = (stripWordPunctuation(line))
+        line = line.lower()
+        new_text.append(line)
+
+    file.close()
+
+    return new_text
 
 def get_random_words(num_words):
     list_of_words = get_all_words()
@@ -28,9 +35,6 @@ def get_random_words(num_words):
 
         #put the words into a sentence 
         sentence += random_words + " "
-        
-        # Remove word from list of words
-        list_of_words.remove(random_words)
 
         #count down to exit while loop
         num_words -= 1

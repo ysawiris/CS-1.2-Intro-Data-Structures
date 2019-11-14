@@ -34,6 +34,7 @@ def histogram_list(file_text):
         else:
             histogram[text] = 1
     
+    #loop and add each key and value to our list 
     for key, value in histogram.items():
         list.append([key, value])
 
@@ -51,6 +52,7 @@ def histogram_tuples(file_text):
         else:
             histogram[text] = 1
     
+    #loop and add each key and value to our tuples 
     for key, value in histogram.items():
         tuples.append((key, value))
     
