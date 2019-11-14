@@ -44,7 +44,7 @@ def test_random_word_by_frequency(text_file='test-file.txt'):
     print(histogram)
 
 def run_sample_by_freq():
-    path = 'tweet_generator/modules/lyrcis.txt'
+    path = './modules/lyrcis.txt'
     text = frequency.open_file(path)
     histogram = frequency.histogram_dictionary(text)
 
