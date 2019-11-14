@@ -1,9 +1,9 @@
 import sys
 import random
 #error will occur when running app in terminal, this line of code is need for Heroku
-#from modules import frequency
+from modules import frequency
 #uncomment the line below to have it work correctly, make sure to comment out line 4 
-import frequency
+#import frequency
 
 def random_word_by_freq(histogram):
     tokens = 0   #to tally up the values count 
