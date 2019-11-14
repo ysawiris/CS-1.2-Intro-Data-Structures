@@ -43,7 +43,7 @@ def test_random_word_by_frequency(text_file='test-file.txt'):
     
     print(histogram)
 
-def run_sample_by_freq(path = 'text-file.txt'):
+def run_sample_by_freq(path = './database/lyrics.txt'):
 
     text = frequency.open_file(path)
     histogram = frequency.histogram_dictionary(text)
