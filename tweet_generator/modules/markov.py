@@ -28,21 +28,7 @@ class MarkovChain(dict):
                 next = word_list[index + 1]
                 self.get(word).add_count(next)
     
-    def sentence_gen(self, length = 14):
 
-        sampled_word = random.choice(list(self.get('start')))
-
-        sentence = sampled_word
-
-        for _ in range(length - 1):
-            sampled_word = self[sampled_word].sample()
-
-            sentence += " " + sampled_word
-
-
-        sentence += random.choice(list(self.get('end')))
-
-        return sentence
 
 
 
@@ -52,6 +38,5 @@ if __name__ == "__main__":
 
     print(markov_chain)
 
-    print(markov_chain.sentence_gen())
 
 
