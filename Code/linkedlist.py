@@ -74,29 +74,13 @@ class LinkedList(object):
         TODO: Running time: O(???) Why and under what conditions?"""
         # TODO: Create new node to hold given item
         # TODO: Append node after tail, if it exists
-        node = Node(item)
-
-        if self.tail is not None:
-            #set tail pointer to new node 
-            node = self.tail.next
-            #point tail to new node 
-            node = self.tail 
-        else: 
-            node = self.head
-            node = self.tail 
 
     def prepend(self, item):
         """Insert the given item at the head of this linked list.
         TODO: Running time: O(???) Why and under what conditions?"""
         # TODO: Create new node to hold given item
         # TODO: Prepend node before head, if it exists
-        node = Node(item)
-        if self.head is not None: 
-            node.next = self.head
-            node = self.head
-        else:
-            node = self.head
-            node = self.tail
+
 
 
     def find(self, quality):
@@ -105,12 +89,7 @@ class LinkedList(object):
         TODO: Worst case running time: O(???) Why and under what conditions?"""
         # TODO: Loop through all nodes to find item where quality(item) is True
         # TODO: Check if node's data satisfies given quality function
-        while self.head is not None:
-            if quality(self.head.data) is True:
-                return self.head.data
-            else:
-                node = self.head.next 
-        return None
+
     def delete(self, item):
         """Delete the given item from this linked list, or raise ValueError.
         TODO: Best case running time: O(???) Why and under what conditions?
@@ -119,6 +98,7 @@ class LinkedList(object):
         # TODO: Update previous node to skip around node with matching data
         # TODO: Otherwise raise error to tell user that delete has failed
         # Hint: raise ValueError('Item not found: {}'.format(item))
+        
 
 
 def test_linked_list():
