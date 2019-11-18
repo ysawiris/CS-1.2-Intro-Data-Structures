@@ -31,12 +31,12 @@ class MarkovChain(dict):
 
 
 
-
 if __name__ == "__main__":
     word_list = get_text("lyrcis.txt")
     markov_chain = MarkovChain(word_list)
 
     print(markov_chain)
+
 
 
 

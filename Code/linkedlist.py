@@ -73,9 +73,9 @@ class LinkedList(object):
         """Insert the given item at the tail of this linked list.
         TODO: Running time: O(???) Why and under what conditions?"""
         # TODO: Create new node to hold given item
-        # TODO: Append node after tail, if it exists
         node = Node(item)
-
+        
+        # TODO: Append node after tail, if it exists
         if self.tail is not None:
             #set tail pointer to new node 
             self.tail.next = node
@@ -89,8 +89,15 @@ class LinkedList(object):
         """Insert the given item at the head of this linked list.
         TODO: Running time: O(???) Why and under what conditions?"""
         # TODO: Create new node to hold given item
+        node = Node(item)
+        
         # TODO: Prepend node before head, if it exists
-
+        if self.head is not None: 
+            node.next = self.head
+            self.head = node
+        else:
+            self.tail = node 
+            self.head = node 
 
 
     def find(self, quality):
