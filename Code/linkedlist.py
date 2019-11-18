@@ -74,7 +74,7 @@ class LinkedList(object):
         TODO: Running time: O(???) Why and under what conditions?"""
         # TODO: Create new node to hold given item
         node = Node(item)
-        
+
         # TODO: Append node after tail, if it exists
         if self.tail is not None:
             #set tail pointer to new node 
@@ -99,14 +99,18 @@ class LinkedList(object):
             self.tail = node 
             self.head = node 
 
-
     def find(self, quality):
         """Return an item from this linked list satisfying the given quality.
         TODO: Best case running time: O(???) Why and under what conditions?
         TODO: Worst case running time: O(???) Why and under what conditions?"""
         # TODO: Loop through all nodes to find item where quality(item) is True
         # TODO: Check if node's data satisfies given quality function
-
+        while self.head is not None:
+            if quality(self.head.data) is True:
+                return self.head.data
+            else:
+                node = self.head.next 
+                return None
     def delete(self, item):
         """Delete the given item from this linked list, or raise ValueError.
         TODO: Best case running time: O(???) Why and under what conditions?
