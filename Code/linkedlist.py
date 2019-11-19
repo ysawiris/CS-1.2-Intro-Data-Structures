@@ -117,11 +117,17 @@ class LinkedList(object):
 
         # TODO: Loop through all nodes to find item where quality(item) is True
         # TODO: Check if node's data satisfies given quality function
-        while self.head is not None:
-            if quality(self.head.data) is True:
-                return self.head.data
-            else:
-                return None
+        current_node = self.head
+
+        #loop through all the nodes untill self.head reaches the end of linkedlist (none)
+        while current_node is not None:
+            #check if the data matches 
+            if quality(current_node.data):
+                return current_node.data
+            #continue to the next node 
+            current_node = current_node.next
+        #return none if nothing matches data in nodes    
+        return None
 
     def delete(self, item): 
         """Delete the given item from this linked list, or raise ValueError.
