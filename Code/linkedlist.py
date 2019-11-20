@@ -142,6 +142,46 @@ class LinkedList(object):
         # TODO: Update previous node to skip around node with matching data
         # TODO: Otherwise raise error to tell user that delete has failed
         # Hint: raise ValueError('Item not found: {}'.format(item))
+        previous_node = None 
+        current_node = self.head
+
+        #loop through all the nodes untill self.head reaches the end of linkedlist (none)
+        while current_node is not None:
+            if current_node.data == item:
+                #now we need to link the previous node to the node next to current node 
+                #checking if current node is the linked to self head
+                if previous_node is None:
+                    #link the head to next node so we can delete current node
+                    self.head = current_node.next
+                    
+                    #check if next node is equal to None, meaning that current node is the last node 
+                    if current_node.next is None:
+                        #therefore set tail equal to previous node to complete the linked list
+                        self.tail = previous_node
+                #check if the next node is equal to none 
+                elif current_node.next is None:
+                    previous_node.next = None
+                    self.tail = previous_node
+                
+                #move to the next node 
+                else:
+                    previous_node.next = current_node.next
+                #this is how we tell our program to go back and check the IF statments 
+                #for we advance our position in the linked list 
+                return None 
+            #node was not a edge case and simple connect previous and current
+            else:
+                previous_node = current_node
+                current_node = current_node.next
+
+        raise ValueError(f'Item not found: {item}')
+
+
+                    
+                    
+
+
+            
 
 
 
