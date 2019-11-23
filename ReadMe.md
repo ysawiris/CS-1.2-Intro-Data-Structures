@@ -1,3 +1,4 @@
+*all code is in tweet_generator/modules*
 # CS 1.2: Intro to Data Structures
 
 ## Course Description

@@ -34,9 +34,10 @@ class LinkedList(object):
         return 'LinkedList({!r})'.format(self.items())
 
     def items(self):
-        """Return a list (dynamic array) of all items in this linked list.
-        Best and worst case running time: O(n) for n items in the list (length)
-        because we always need to loop through all n nodes to get each item."""
+        """Return a list (dynamic array) of all items in this linked list."""
+        #Best and worst case running time: O(n) for n items in the list (length)
+        #because we always need to loop through all n nodes to get each item.
+        
         items = []  # O(1) time to create empty list
         # Start at head node
         node = self.head  # O(1) time to assign new variable
@@ -54,9 +55,10 @@ class LinkedList(object):
 
     def length(self): #0(n) is the best and worst case 
         """Return the length of this linked list by traversing its nodes.
-        TODO: Running time: O(???) Why and under what conditions?
-            Running time will always be 0(n). You have iterate over the 
-            whole linked list in how we calculated length."""
+        TODO: Running time: O(???) Why and under what conditions?"""
+        #Running time will always be 0(n). You have iterate over the 
+        #whole linked list in how we calculated length.
+
         # TODO: Loop through all nodes and count one for each
         #Start at head node 
         node = self.head 
@@ -73,9 +75,10 @@ class LinkedList(object):
 
     def append(self, item): #0(1) is the best and worst case 
         """Insert the given item at the tail of this linked list.
-        TODO: Running time: O(???) Why and under what conditions?
-            Running time will be 0(1) for we can add an item at the 
-            tail of a linked list. This is true for every condition."""
+        TODO: Running time: O(???) Why and under what conditions?"""
+        #Running time will be 0(1) for we can add an item at the 
+        #tail of a linked list. This is true for every condition.
+        
         # TODO: Create new node to hold given item
         node = Node(item)
 
@@ -91,9 +94,9 @@ class LinkedList(object):
 
     def prepend(self, item): #0(1) is the best case and worst case
         """Insert the given item at the head of this linked list.
-        TODO: Running time: O(???) Why and under what conditions?
-            Running time will be 0(1) for we can add an item at the 
-            head of a linked list. This is true for every condition."""
+        TODO: Running time: O(???) Why and under what conditions?"""
+        #Running time will be 0(1) for we can add an item at the 
+        #head of a linked list. This is true for every condition.
         
         # TODO: Create new node to hold given item
         node = Node(item)
@@ -108,12 +111,12 @@ class LinkedList(object):
 
     def find(self, quality): #0(1) is the best case, in which self.head points to what we are trying to find, 0(n) is worst case
         """Return an item from this linked list satisfying the given quality.
-        TODO: Best case running time: O(???) Why and under what conditions?
-            Best case is O(1), only when what we are trying to find is the first node.
+        TODO: Best case running time: O(???) Why and under what conditions?"""
+        #Best case is O(1), only when what we are trying to find is the first node.
         
-        TODO: Worst case running time: O(???) Why and under what conditions?
-            Worst case is 0(n), when the item is not in the list or if the item
-            is in the end of list, causing it to take a longer time.        """
+        """TODO: Worst case running time: O(???) Why and under what conditions?"""
+        #Worst case is 0(n), when the item is not in the list or if the item
+        #is in the end of list, causing it to take a longer time.     
 
         # TODO: Loop through all nodes to find item where quality(item) is True
         # TODO: Check if node's data satisfies given quality function
@@ -131,12 +134,12 @@ class LinkedList(object):
 
     def delete(self, item): 
         """Delete the given item from this linked list, or raise ValueError.
-        TODO: Best case running time: O(???) Why and under what conditions?
-            Best case is O(1), only when what we are trying to delete is the first node.
+        TODO: Best case running time: O(???) Why and under what conditions?"""
+        #Best case is O(1), only when what we are trying to delete is the first node.
 
-        TODO: Worst case running time: O(???) Why and under what conditions?
-            Worst case is 0(n), when the item is not in the list or if the item
-            is in the end of list, causing it to take a longer time. """
+        """TODO: Worst case running time: O(???) Why and under what conditions?"""
+        #Worst case is 0(n), when the item is not in the list or if the item
+        #is in the end of list, causing it to take a longer time. 
 
         # TODO: Loop through all nodes to find one whose data matches given item
         # TODO: Update previous node to skip around node with matching data
@@ -176,21 +179,6 @@ class LinkedList(object):
 
         raise ValueError(f'Item not found: {item}')
 
-
-                    
-                    
-
-
-            
-
-
-
-
-        
-
-        
-
-
 def test_linked_list():
     ll = LinkedList()
     print('list: {}'.format(ll))
@@ -217,8 +205,6 @@ def test_linked_list():
         print('head: {}'.format(ll.head))
         print('tail: {}'.format(ll.tail))
         print('length: {}'.format(ll.length()))
-
-
 
 
 if __name__ == '__main__':
