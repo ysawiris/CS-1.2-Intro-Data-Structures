@@ -108,6 +108,28 @@ class LinkedList(object):
         else:
             self.tail = node 
             self.head = node 
+    
+    def replace(self, item, new_data):
+        """Replace a item in our linked-list with a new item"""
+        #best and worst case is both O(n). We have to loop through our list 
+        #unitll we find the node we are trying to replace. 
+
+        #set current node to the head of list
+        current_node = self.head
+
+        #loop through the linked list unitll the node data is equal to item 
+        while current_node is not None:
+            if current_node.data == item:
+                #now set the current node data set to new_item 
+                current_node.data = new_data
+                #to end our while loop 
+                return None
+            
+            #if not true, continue to the next node 
+            current_node = current_node.next
+
+        #let user know that item was not found    
+        raise ValueError(f'Item not found: {item}')
 
     def find(self, quality): #0(1) is the best case, in which self.head points to what we are trying to find, 0(n) is worst case
         """Return an item from this linked list satisfying the given quality.
@@ -192,7 +214,18 @@ def test_linked_list():
     print('head: {}'.format(ll.head))
     print('tail: {}'.format(ll.tail))
     print('length: {}'.format(ll.length()))
-
+    
+    #test replace function 
+    replace_implemented = True 
+    if replace_implemented:
+        print('\nTesting Replace')
+        print('list: {}'.format(ll))
+        item = 'B'
+        print('replace({!r})'.format(item))
+        ll.replace(item, 'Z')
+        print('list: {}'.format(ll))
+        ll.replace('Z', item)
+        
     # Enable this after implementing delete method
     delete_implemented = True
     if delete_implemented:
