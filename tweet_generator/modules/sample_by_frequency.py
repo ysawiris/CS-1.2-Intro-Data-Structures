@@ -1,7 +1,7 @@
 import sys
 import random
 #error will occur when running app in terminal, this line of code is need for Heroku
-from modules import frequency
+import frequency
 #uncomment the line below to have it work correctly, make sure to comment out line 4 
 #import frequency
 
