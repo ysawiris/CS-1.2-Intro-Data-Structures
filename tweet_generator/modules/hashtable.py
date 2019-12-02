@@ -75,12 +75,19 @@ class HashTable(object):
         # TODO: Find bucket where given key belongs
         # TODO: Check if key-value entry exists in bucket
 
-        for bucket in self.buckets:
-            for other_key, value in bucket.items():
-                if other_key == key:
-                    return True 
-                else: 
-                    return False 
+        #get the linked-list in a bucket 
+        #_bucket_index returns the bucket index where the key would be stored 
+        specific_bucket = self.buckets[self._bucket_index(key)]
+
+        #traverse through the linked-list
+        #check each node if it is equal to the key we are looking for 
+        #else return false 
+        if specific_bucket is not None:
+            for node in specific_bucket:
+                if node.data[0] == key:
+                    return True
+        return False         
+            
 
 
     def get(self, key):
