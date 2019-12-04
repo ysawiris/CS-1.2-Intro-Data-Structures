@@ -27,6 +27,8 @@ class HashTable(object):
     def keys(self):
         """Return a list of all keys in this hash table.
         TODO: Running time: O(???) Why and under what conditions?"""
+        #Both cases are O(b(n/b)) for you have to go through each bucket and add each key 
+        #in the linkedlist. 
         # Collect all keys in each bucket
         all_keys = []
         for bucket in self.buckets:
@@ -37,6 +39,8 @@ class HashTable(object):
     def values(self):
         """Return a list of all values in this hash table.
         TODO: Running time: O(???) Why and under what conditions?"""
+        #Both cases are O(b(n/b)) for you have to go through each bucket and add each value
+        #in the linkedlist. 
         # TODO: Loop through all buckets
         # TODO: Collect all values in each bucket
         all_values = []
@@ -51,7 +55,8 @@ class HashTable(object):
         """Return a list of all items (key-value pairs) in this hash table.
         TODO: Running time: O(???) Why and under what conditions?"""
         # The running time for both cases is O(n), for you have to traverse 
-        # through bucket and get all the nodes.
+        # through each bucket and get all the nodes.
+        
         # Collect all pairs of key-value entries in each bucket
         all_items = []
         for bucket in self.buckets:
@@ -61,10 +66,13 @@ class HashTable(object):
     def length(self):
         """Return the number of key-value entries by traversing its buckets.
         TODO: Running time: O(???) Why and under what conditions?"""
-        # TODO: Loop through all buckets
-        # TODO: Count number of key-value entries in each bucket
         # Running time will be O(n) for both best and worst case. We have to 
         # go through each bucket and count how many nodes are in each linkedlist 
+
+        # TODO: Loop through all buckets
+        # TODO: Count number of key-value entries in each bucket
+        
+        
         count = 0 
 
         for bucket in self.buckets:
@@ -76,6 +84,10 @@ class HashTable(object):
     def contains(self, key):
         """Return True if this hash table contains the given key, or False.
         TODO: Running time: O(???) Why and under what conditions?"""
+        #Best case is O(1) this happens when your only have 1 node in your linkedlist 
+        #Average case is O(n/b) this happens when you have multiple nodes in your linkedlist 
+        #and you have to traverse each node to see if the keys match 
+        
         # TODO: Find bucket where given key belongs
         # TODO: Check if key-value entry exists in bucket
 
@@ -89,6 +101,10 @@ class HashTable(object):
     def get(self, key):
         """Return the value associated with the given key, or raise KeyError.
         TODO: Running time: O(???) Why and under what conditions?"""
+        #Best case is O(1) this happens when your only have 1 node in your linkedlist 
+        #Average case is O(n/b) this happens when you have multiple nodes in your linkedlist 
+        #and you have to traverse each node to see if the keys matches then return the value
+        
         # TODO: Find bucket where given key belongs
         # TODO: Check if key-value entry exists in bucket
         # TODO: If found, return value associated with given key
@@ -112,6 +128,11 @@ class HashTable(object):
     def set(self, key, value):
         """Insert or update the given key with its associated value.
         TODO: Running time: O(???) Why and under what conditions?"""
+        #Best case is O(1) this happens when your only have 1 node in your linkedlist 
+        #Average case is O(n/b) this happens when you have multiple nodes in your linkedlist 
+        #and you have to traverse each node to see if the key exists, update its value if it does
+        #or just add new node to the linkedlist 
+
         # TODO: Find bucket where given key belongs
         # TODO: Check if key-value entry exists in bucket
         # TODO: If found, update value associated with given key
@@ -131,6 +152,10 @@ class HashTable(object):
     def delete(self, key):
         """Delete the given key from this hash table, or raise KeyError.
         TODO: Running time: O(???) Why and under what conditions?"""
+        #Best case is O(1) this happens when your only have 1 node in your linkedlist 
+        #Average case is O(n/b) this happens when you have multiple nodes in your linkedlist 
+        #and you have to traverse each node to see if the keys match then delete
+        
         # TODO: Find bucket where given key belongs
         # TODO: Check if key-value entry exists in bucket
         # TODO: If found, delete entry associated with given key
