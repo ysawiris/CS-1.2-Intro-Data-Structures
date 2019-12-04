@@ -50,6 +50,8 @@ class HashTable(object):
     def items(self):
         """Return a list of all items (key-value pairs) in this hash table.
         TODO: Running time: O(???) Why and under what conditions?"""
+        # The running time for both cases is O(n), for you have to traverse 
+        # through bucket and get all the nodes.
         # Collect all pairs of key-value entries in each bucket
         all_items = []
         for bucket in self.buckets:
@@ -61,6 +63,8 @@ class HashTable(object):
         TODO: Running time: O(???) Why and under what conditions?"""
         # TODO: Loop through all buckets
         # TODO: Count number of key-value entries in each bucket
+        # Running time will be O(n) for both best and worst case. We have to 
+        # go through each bucket and count how many nodes are in each linkedlist 
         count = 0 
 
         for bucket in self.buckets:
@@ -77,12 +81,10 @@ class HashTable(object):
 
         specific_bucket = self.buckets[self._bucket_index(key)]
 
-        for other_key, value in specific_bucket.items():
-            if other_key == key:
-                return True 
-        return False  
+        specific_node = specific_bucket.find(lambda item: item[0] == key)
 
-
+        return specific_node is not None 
+        
 
     def get(self, key):
         """Return the value associated with the given key, or raise KeyError.
@@ -100,9 +102,10 @@ class HashTable(object):
         #traverse through the linked-list
         #check each node if it is equal to the key we are looking for 
         #else raise KeyError
-        for other_key, value in specific_bucket.items():
-            if other_key == key:
-                return value
+        specific_node = specific_bucket.find(lambda item: item[0] == key)
+
+        if specific_node is not None:
+            return specific_node[1]
         raise KeyError('Key not found: {}'.format(key))
             
 
@@ -115,13 +118,13 @@ class HashTable(object):
         # TODO: Otherwise, insert given key-value entry into bucket
         specific_bucket = self.buckets[self._bucket_index(key)]
 
-        for other_key, other_value in specific_bucket.items():
-            if other_key == key:
-                specific_bucket.replace((key, other_value), (key, value))
-                return None 
-            
+        specific_node = specific_bucket.find(lambda item: item[0] == key)
+        
+        if specific_node is not None:
+            specific_bucket.replace(specific_node, (key, value))
+            return None
+    
         specific_bucket.append((key,value))
-
 
 
 
@@ -138,12 +141,13 @@ class HashTable(object):
         #_bucket_index returns the bucket index where the key would be stored 
         specific_bucket = self.buckets[self._bucket_index(key)]
 
+        specific_node = specific_bucket.find(lambda item: item[0] == key)
+
         #traverse through the linked-list
         #check each node if it is equal to the key we are looking for then delete
         #else raise KeyError
-        for other_key, value in specific_bucket.items():
-            if other_key == key:
-                specific_bucket.delete((other_key, value))
+        if specific_node is not None:
+                specific_bucket.delete(specific_node)
                 return None
         raise KeyError('Key not found: {}'.format(key))
 
