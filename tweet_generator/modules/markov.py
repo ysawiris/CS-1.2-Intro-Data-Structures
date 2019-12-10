@@ -12,7 +12,7 @@ class MarkovChain(dict):
         #if word list is passed, create a markov chain 
         if word_list is not None:
             self.create_markov(word_list)
-            self['start'] = Dictogram(['nigga'])
+            self['start'] = Dictogram(['love'])
             self['end'] = Dictogram([''])
     
     def get_text(self, path = 'lyrcis.txt'):
@@ -21,14 +21,29 @@ class MarkovChain(dict):
         return text 
     
     def create_markov(self, word_list):
-        for index, word in enumerate(word_list):
+        num_words = len(word_list)
 
-            if self.get(word) is None:
-                self[word] = Dictogram()
+        for index, key in enumerate(word_list):
+
+            if self.get(key) is None:
+                self[key] = Dictogram()
             
-            if index + 1 < len(word_list):
-                next = word_list[index + 1]
-                self.get(word).add_count(next)
+            if num_words > index + 1:
+                word = word_list[index + 1]
+                self.get(key).add_count(word)
+    
+    def generate_sentence(self, num_words):
+        
+        word = random.choice(list(self.get('start')))
+
+        sentence = word 
+
+        for _ in range(num_words):
+            word = self[word].sample()
+
+            sentence += " " + word 
+        
+        return sentence
     
 
 
@@ -39,6 +54,8 @@ if __name__ == "__main__":
 
 
     print(markov_chain)
+
+    print(markov_chain.generate_sentence(10))
 
 
 

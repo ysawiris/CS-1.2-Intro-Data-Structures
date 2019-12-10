@@ -15,7 +15,6 @@ def open_file(path):
     #strip each word and append it to new list 
     for line in file_text:
         line = (stripWordPunctuation(line))
-        line = line.lower()
         new_text.append(line)
 
     file.close()

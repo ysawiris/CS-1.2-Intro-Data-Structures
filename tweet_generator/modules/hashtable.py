@@ -27,7 +27,7 @@ class HashTable(object):
     def keys(self):
         """Return a list of all keys in this hash table.
         TODO: Running time: O(???) Why and under what conditions?"""
-        #Both cases are O(b(n/b)) for you have to go through each bucket and add each key 
+        #Both cases are O(n) for you have to go through each bucket and add each key 
         #in the linkedlist. 
         # Collect all keys in each bucket
         all_keys = []
@@ -39,7 +39,7 @@ class HashTable(object):
     def values(self):
         """Return a list of all values in this hash table.
         TODO: Running time: O(???) Why and under what conditions?"""
-        #Both cases are O(b(n/b)) for you have to go through each bucket and add each value
+        #Both cases are O(n) for you have to go through each bucket and add each value
         #in the linkedlist. 
         # TODO: Loop through all buckets
         # TODO: Collect all values in each bucket
