@@ -36,18 +36,18 @@ class MarkovChain(dict):
 
 
     def sentence(self, word_list, num_words):
-
-
-
+        sentence = ""
+        
         random_index = random.randint(0, len(word_list) - 1)
         key = (word_list[random_index], word_list[random_index + 1])
 
-        sentence = key[0] + ' ' + key[1]
-
-        for _ in range(num_words):
+        while len(sentence) < num_words:  
+            
             word = self[key].sample()
 
             sentence += " " + word
+
+            key = (key[1], word)
         
         return sentence
             
@@ -58,7 +58,14 @@ class MarkovChain(dict):
     
         
 
-    
+def run_generator():
+
+    word_list = MarkovChain.get_text("lyrcis.txt")
+    markov_chain = MarkovChain(word_list)
+
+
+    return(markov_chain.sentence(word_list, 60))
+
 
         
         
@@ -68,15 +75,6 @@ class MarkovChain(dict):
 
 
 if __name__ == "__main__":
-    word_list = MarkovChain.get_text("lyrcis.txt")
-    markov_chain = MarkovChain(word_list)
-
-
-
-
-
-    print(markov_chain)
-
-    print(markov_chain.sentence(word_list, 10))
+    print(run_generator())
 
  

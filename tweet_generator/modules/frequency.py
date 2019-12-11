@@ -80,7 +80,7 @@ def unique_words(file_text):
         else:
             histogram[text] = 1
     
-    return (len(histogram))
+    return histogram
 
 
 
@@ -92,3 +92,6 @@ if __name__ == "__main__":
     histogram_dictionary(text)
     histogram_list(text)
     histogram_tuples(text)
+
+    print(unique_words(text))
+    print(len(unique_words(text)))

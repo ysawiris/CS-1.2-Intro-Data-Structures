@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +12,7 @@
     <!-- CUSTOM STYLES -->
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <!---NavBar-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -19,25 +21,33 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
-                <a class="nav-link" href="#!">Home <span class="sr-only">(current)</span></a>
-            </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#!">Home <span class="sr-only">(current)</span></a>
+                </li>
             </ul>
         </div>
     </nav>
 
     {% block content %}
     <!--Background-->
-    <div class="container-fluid">
-        <!-- A fluid container that uses the full witdh -->
-        <img src="/static/background.png" class="img-fluid" style="width: 100%;" alt="Responsive image">
-        <div class="centered">
-            <h4>{{ lyric_text }}</h4>
+    <div class="container" style="height: 600px; background: url('/static/background.png') no-repeat center center /cover">
+        <div class="centered row">
+            <div class="container">
+                <h4>{{ lyric_text }}</h4>
+                <button class="btn btn-primary rounded">Generate New Lyric</button>
+            </div>
         </div>
     </div>
     {% endblock %}
 
 
-    
+
+    <div class="footer bg-light p-5">
+        <img class="footer-logo" src="/static/image-yoyo.jpg" style="height: 50px;"> &copy; 2019
+    </div>
+
+
+
 </body>
+
 </html>

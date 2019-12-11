@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 from pymongo import MongoClient
 from bson.objectid import ObjectId
-from modules import sample_by_frequency, frequency
+from modules import markov_2nd_order, frequency
 import os 
 
 app = Flask(__name__)
@@ -16,7 +16,7 @@ lyric = db['lyric']
 def index():
     """Return homepage"""
     lyric_list = {
-        'lyric' : sample_by_frequency.run_sample_by_freq()
+        'lyric' : markov_2nd_order.run_generator()
     }
     lyric_id = lyric.insert_one(lyric_list).inserted_id
     lyric_text = lyric.find_one({'_id': ObjectId(lyric_id)})['lyric']  
