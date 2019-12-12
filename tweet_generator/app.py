@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 from pymongo import MongoClient
 from bson.objectid import ObjectId
-from tweet_generator import markov_2nd_order, frequency
+import markov_2nd_order, frequency
 import os 
 
 app = Flask(__name__)
