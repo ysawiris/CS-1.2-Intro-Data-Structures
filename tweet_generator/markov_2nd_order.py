@@ -14,7 +14,7 @@ class MarkovChain(dict):
             self.create_markov(word_list)
 
     
-    def get_text(self, path = 'lyrcis.txt'):
+    def get_text(self, path = 'lyrics.txt'):
         text = open_file(path)
     
         return text 
@@ -59,10 +59,8 @@ class MarkovChain(dict):
 
 def run_generator():
 
-    word_list = MarkovChain.get_text("lyrcis.txt")
+    word_list = MarkovChain.get_text("lyrics.txt")
     markov_chain = MarkovChain(word_list)
-
-    print(markov_chain)
 
 
     return(markov_chain.sentence(word_list, 60))
