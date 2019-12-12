@@ -10,3 +10,7 @@
     text-align: center;
     bottom: 0;
 }
+
+.body {
+    min-height: 100%;
+}
