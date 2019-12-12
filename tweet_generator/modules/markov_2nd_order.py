@@ -1,5 +1,5 @@
-from dictogram import Dictogram
-from frequency import histogram_dictionary, open_file
+from modules import dictogram
+from modules import frequency
 import random
 
 
@@ -12,11 +12,11 @@ class MarkovChain(dict):
         #if word list is passed, create a markov chain 
         if word_list is not None:
             self.create_markov(word_list)
-            self['start'] = Dictogram(['love'])
-            self['end'] = Dictogram([''])
+            self['start'] = dictogram.Dictogram(['love'])
+            self['end'] = dictogram.Dictogram([''])
     
     def get_text(self, path = 'lyrcis.txt'):
-        text = open_file(path)
+        text = frequency.open_file(path)
     
         return text 
     
@@ -30,9 +30,9 @@ class MarkovChain(dict):
                 word = word_list[index + 2]
 
                 if (key1, key2) not in self:
-                    self[(key1, key2)] = Dictogram([word])
+                    self[(key1, key2)] = dictogram.Dictogram([word])
                 else:
-                    self[(key1, key2)].add_count(word)
+                    self[(key1, key2)].dictogram.add_count(word)
 
 
     def sentence(self, word_list, num_words):
@@ -43,7 +43,7 @@ class MarkovChain(dict):
 
         while len(sentence) < num_words:  
             
-            word = self[key].sample()
+            word = self[key].dictogram.sample()
 
             sentence += " " + word
 
