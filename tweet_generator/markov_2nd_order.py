@@ -63,6 +63,8 @@ def run_generator():
     word_list = MarkovChain.get_text("lyrcis.txt")
     markov_chain = MarkovChain(word_list)
 
+    print(markov_chain)
+
 
     return(markov_chain.sentence(word_list, 60))
 

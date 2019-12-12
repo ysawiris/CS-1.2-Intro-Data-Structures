@@ -10,7 +10,7 @@
     <link rel='stylesheet' href='https://bootswatch.com/4/lux/bootstrap.min.css'>
 
     <!-- CUSTOM STYLES -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/templates/style.css">
 </head>
 
 <body>
@@ -32,9 +32,9 @@
     <!--Background-->
     <div class="container" style="height: 600px; background: url('/static/background.png') no-repeat center center /cover">
         <div class="centered row">
-            <div class="container">
+            <div class="container bg-white">
                 <h4>{{ lyric_text }}</h4>
-                <button class="btn btn-primary rounded">Generate New Lyric</button>
+                <a href="https://lyric-generator-creator.herokuapp.com/"><button class="btn btn-primary rounded">Generate New Lyric</button></a>
             </div>
         </div>
     </div>
