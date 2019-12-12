@@ -12,8 +12,6 @@ class MarkovChain(dict):
         #if word list is passed, create a markov chain 
         if word_list is not None:
             self.create_markov(word_list)
-            self['start'] = Dictogram([''])
-            self['end'] = Dictogram([''])
     
     def get_text(self, path = 'lyrcis.txt'):
         text = open_file(path)
