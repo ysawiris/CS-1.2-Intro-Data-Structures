@@ -15,7 +15,7 @@ class MarkovChain(dict):
             self['start'] = dictogram.Dictogram(['love'])
             self['end'] = dictogram.Dictogram([''])
     
-    def get_text(self, path = 'lyrcis.txt'):
+    def get_text(self, path = '/modules/lyrcis.txt'):
         text = frequency.open_file(path)
     
         return text 
