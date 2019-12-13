@@ -82,16 +82,49 @@ def unique_words(file_text):
     
     return histogram
 
+def dictionary_phodict():
+
+    phodict = {}
+
+
+    path = "phodict.txt"
+
+        #open and read file and split the words 
+    with open(path, 'r') as file:
+        for line in file:
+            words = line.split(" ")
+
+            #print("previous words: {}".format(words))
+
+            for i in range(len(words)):
+                words[i] = words[i].strip()
+                
+            #print("formatted words: {}".format(words))
+
+            phodict[words[0]] = words[2:]
+            
+
+    
+    return phodict
+        
+
+
+
+
+
+
+
 
 
 
 if __name__ == "__main__":
+    
+    '''
     input_file = sys.argv[1:]
     file = input_file[0]
     text = open_file(file)
     histogram_dictionary(text)
     histogram_list(text)
     histogram_tuples(text)
-
-    print(unique_words(text))
-    print(len(unique_words(text)))
+    '''
+    print(dictionary_phodict())
