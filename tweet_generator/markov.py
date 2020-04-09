@@ -13,7 +13,7 @@ class MarkovChain(dict):
         if word_list is not None:
             self.create_markov(word_list)
     
-    def get_text(self, path = 'lyrcis.txt'):
+    def get_text(self, path = 'lyrics.txt'):
         text = open_file(path)
     
         return text 
@@ -56,8 +56,7 @@ if __name__ == "__main__":
 
     print(markov_chain)
 
-    print(markov_chain.generate_sentence(word_list, 10))
-
+   
 
 
 
